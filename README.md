@@ -60,59 +60,7 @@ microservice-product
 
 La classe `MainApp.java`, si elle existe dans le projet, permet de tester les opérations métier.
 
-## 4. Description des composants
-
-### 4.1. Entité Product
-
-La classe `Product` représente un produit dans la base de données.
-
-Elle contient les attributs suivants :
-
-- `id` : identifiant unique généré automatiquement.
-- `name` : nom du produit.
-- `price` : prix du produit.
-
-Les annotations JPA permettent à Hibernate de faire correspondre cette classe à la table `products`.
-
-### 4.2. Couche DAO
-
-La couche DAO (*Data Access Object*) est responsable de l'accès aux données.
-
-L'interface `IDao<T>` définit les opérations principales :
-
-- `save(T entity)` : enregistrer une entité.
-- `update(T entity)` : modifier une entité.
-- `delete(T entity)` : supprimer une entité.
-- `findById(Long id)` : rechercher une entité par son identifiant.
-- `findAll()` : récupérer toutes les entités.
-
-La classe `ProductDaoImpl` implémente ces opérations en utilisant Hibernate et `SessionFactory`.
-
-### 4.3. Couche Service
-
-La couche Service contient la logique métier de l'application.
-
-La classe `ProductServiceImpl` utilise la couche DAO pour gérer les produits.
-
-Elle permet notamment :
-- D'ajouter un produit.
-- De récupérer la liste des produits.
-- De refuser un produit lorsque son prix est négatif, conformément à la règle métier implémentée.
-
-Les annotations `@Service` et `@Transactional` permettent respectivement de déclarer le service comme composant Spring et de gérer les transactions.
-
-### 4.4. Configuration Spring et Hibernate
-
-La configuration permet de :
-- Déclarer les composants Spring.
-- Configurer la source de données MySQL.
-- Créer la `SessionFactory` d'Hibernate.
-- Activer la gestion des transactions.
-- Injecter automatiquement les dépendances nécessaires.
-
-Les annotations utilisées comprennent notamment `@Configuration`, `@ComponentScan`, `@Bean`, `@Autowired`, `@EnableTransactionManagement` et `@Transactional`.
-
-## 5. Résultats des tests
+## 4. Résultats des tests
 
 ### Test 1 : Initialisation du contexte
 
